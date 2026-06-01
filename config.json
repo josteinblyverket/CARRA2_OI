@@ -1,0 +1,53 @@
+{
+  "t2m": {
+    "firstguess": {
+      "fg_file": "__INPUT_FG__",
+      "fg_var": "air_temperature_2m"
+    },
+    "redundancy": {
+      "an_time": "__CURRENT_DTG__",
+      "debug": false
+    },
+    "fraction": {
+      "fraction_file": "__INPUT_FG__",
+      "fraction_var": "land_area_fraction",
+      "minval": 0.2
+    },
+ "sets": {
+      "bufr": {
+        "filetype": "json",
+        "filepattern": "__INPUT_OB__",
+        "varname": "airTemperatureAt2M",
+        "tests": {
+          "nometa": {
+            "do_test": true
+          },
+          "domain": {
+            "do_test": true
+          },
+          "blacklist": {
+            "do_test": true
+          },
+          "redundancy": {
+            "do_test": true
+          },
+          "plausibility": {
+            "do_test": true,
+            "maxval": 340,
+            "minval": 200
+          },
+          "fraction": {
+            "do_test": true
+          },
+          "sct": {
+            "do_test": true,
+            "pos": 4.0,
+            "neg": 4.0,
+            "eps2": 0.5
+          }
+        }
+      }
+    }
+  }
+}
+
